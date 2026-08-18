@@ -1,0 +1,517 @@
+<title>Plan SEO Keyget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --paper:#F1F4F2; --surface:#FBFCFA; --sunken:#E7ECE8;
+  --ink:#16212A; --ink-2:#4C5A63; --ink-3:#71818A;
+  --rule:#D2D9D4; --rule-strong:#B6C0B9;
+  --accent:#0E6C5C;
+  --accent-soft:#DDEBE6;
+  --resi:#2C6B8C; --mina:#8A6626; --solar:#B9761B; --corp:#59626E;
+  --shadow:0 1px 2px rgba(20,33,42,.05);
+}
+:root{--accent-ink:#0A5346;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1518; --surface:#161E21; --sunken:#1B2427;
+    --ink:#E6EDE9; --ink-2:#9EACA9; --ink-3:#7A8886;
+    --rule:#28343A; --rule-strong:#3A484D;
+    --accent:#4CBFA5; --accent-ink:#8FD9C7; --accent-soft:#15302B;
+    --resi:#79ADC7; --mina:#C7A167; --solar:#E0A85A; --corp:#9BA6B1;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1518; --surface:#161E21; --sunken:#1B2427;
+  --ink:#E6EDE9; --ink-2:#9EACA9; --ink-3:#7A8886;
+  --rule:#28343A; --rule-strong:#3A484D;
+  --accent:#4CBFA5; --accent-ink:#8FD9C7; --accent-soft:#15302B;
+  --resi:#79ADC7; --mina:#C7A167; --solar:#E0A85A; --corp:#9BA6B1;
+  --shadow:none;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px; line-height:1.62;
+  margin:0; padding:0 20px 96px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px; margin:0 auto}
+h1,h2,h3,.eyebrow,.num,th,.chip,.btn-copy,.mono{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+.mono,code,pre,.paste b,.counter{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+
+/* ---------- header ---------- */
+header{padding:72px 0 40px; border-bottom:1px solid var(--rule)}
+.kicker{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;
+}
+h1{
+  font-size:clamp(38px,7vw,58px); line-height:1.02; letter-spacing:-.025em;
+  font-weight:700; margin:0 0 18px; text-wrap:balance;
+}
+.standfirst{font-size:20px; color:var(--ink-2); margin:0; max-width:60ch; text-wrap:pretty}
+.meta-line{
+  margin-top:28px; display:flex; flex-wrap:wrap; gap:8px 22px;
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-3);
+}
+
+/* ---------- sections ---------- */
+section{padding:52px 0 8px; border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.eyebrow{
+  font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-3); display:flex; align-items:center; gap:12px; margin:0 0 14px;
+}
+.eyebrow::after{content:""; flex:1; height:1px; background:var(--rule)}
+h2{font-size:clamp(26px,4vw,33px); line-height:1.12; letter-spacing:-.02em; font-weight:700; margin:0 0 16px; text-wrap:balance}
+h3{font-size:19px; letter-spacing:-.01em; font-weight:600; margin:34px 0 10px}
+p{margin:0 0 16px; text-wrap:pretty}
+.lede{font-size:18.5px; color:var(--ink-2)}
+a{color:var(--accent-ink); text-underline-offset:3px; text-decoration-thickness:1px}
+strong{font-weight:600}
+em.tag{font-style:normal; color:var(--ink-3)}
+
+/* ---------- findings ---------- */
+.findings{display:flex; flex-direction:column; gap:0; margin:26px 0 8px; border-top:1px solid var(--rule)}
+.finding{display:grid; grid-template-columns:auto 1fr; gap:6px 20px; padding:20px 0; border-bottom:1px solid var(--rule)}
+.finding .num{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3);
+  padding-top:5px; font-variant-numeric:tabular-nums;
+}
+.finding h4{font-family:Archivo,sans-serif; font-size:17px; font-weight:600; margin:0 0 4px; letter-spacing:-.01em}
+.finding p{margin:0; color:var(--ink-2); font-size:16px}
+
+/* ---------- paste blocks ---------- */
+.paste{
+  background:var(--surface); border:1px solid var(--rule); border-radius:3px;
+  margin:18px 0; box-shadow:var(--shadow); overflow:hidden;
+}
+.paste-head{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:10px 14px; background:var(--sunken); border-bottom:1px solid var(--rule);
+}
+.paste-head b{font-size:11.5px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2)}
+.counter{margin-left:auto; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.btn-copy{
+  font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  background:transparent; color:var(--accent-ink); border:1px solid var(--rule-strong);
+  border-radius:2px; padding:4px 9px; cursor:pointer;
+}
+.btn-copy:hover{background:var(--accent-soft); border-color:var(--accent)}
+.btn-copy:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.paste pre{
+  margin:0; padding:14px; font-size:14.5px; line-height:1.55; color:var(--ink);
+  white-space:pre-wrap; word-break:break-word; overflow-x:auto;
+}
+.paste .note{padding:0 14px 12px; margin:0; font-size:14.5px; color:var(--ink-3)}
+.alt{font-size:15.5px; color:var(--ink-2); margin:10px 0 0}
+
+/* ---------- button plan ---------- */
+.rows{border-top:1px solid var(--rule); margin:24px 0 0}
+.row{display:grid; grid-template-columns:26px 1fr; gap:4px 14px; padding:16px 0; border-bottom:1px solid var(--rule)}
+.row .num{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-3); padding-top:4px; font-variant-numeric:tabular-nums}
+.row .label{font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:500; line-height:1.45}
+.row .why{grid-column:2; font-size:15.5px; color:var(--ink-2); margin:2px 0 0}
+.row .dest{grid-column:2; font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink-3); margin:5px 0 0; word-break:break-word}
+.chip{
+  display:inline-block; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  border:1px solid currentColor; border-radius:2px; padding:1px 6px; margin-left:8px; vertical-align:2px;
+}
+.c-resi{color:var(--resi)} .c-mina{color:var(--mina)} .c-solar{color:var(--solar)}
+.c-corp{color:var(--corp)} .c-capta{color:var(--accent)}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto; margin:22px 0; border:1px solid var(--rule); border-radius:3px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:15px}
+th{
+  font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+  text-align:left; padding:11px 14px; background:var(--sunken); border-bottom:1px solid var(--rule); white-space:nowrap;
+}
+td{padding:11px 14px; border-bottom:1px solid var(--rule); vertical-align:top; color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+td.kw{font-family:"IBM Plex Mono",monospace; font-size:13.5px; color:var(--ink)}
+
+/* ---------- checklist ---------- */
+.check{list-style:none; padding:0; margin:14px 0 0}
+.check li{position:relative; padding:0 0 12px 30px; color:var(--ink-2)}
+.check li::before{
+  content:""; position:absolute; left:0; top:8px; width:13px; height:13px;
+  border:1.5px solid var(--rule-strong); border-radius:2px;
+}
+.check li b{color:var(--ink); font-family:Archivo,sans-serif; font-weight:600; font-size:16px}
+
+.callout{
+  border-left:2px solid var(--accent); background:var(--accent-soft);
+  padding:16px 18px; margin:24px 0; border-radius:0 3px 3px 0;
+}
+.callout p{margin:0; font-size:16px; color:var(--ink)}
+.callout p + p{margin-top:10px}
+
+footer{padding:44px 0 0; color:var(--ink-3); font-size:14.5px; border-top:1px solid var(--rule); margin-top:44px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+@media (max-width:520px){
+  body{font-size:16.5px}
+  .finding{grid-template-columns:1fr}
+  .finding .num{padding-top:0}
+  .row{grid-template-columns:1fr}
+  .row .why,.row .dest{grid-column:1}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="kicker">linktr.ee/Keyget.realestate · Agosto 2026</p>
+  <h1>Plan SEO Keyget</h1>
+  <p class="standfirst">Qué se puede posicionar dentro de Linktree, qué no, y los textos exactos para reemplazar hoy — con las cuatro líneas del negocio: propiedades, arriendo, pertenencias mineras y terrenos para parques solares.</p>
+  <div class="meta-line">
+    <span>Mercados: Iquique · Santiago · Concepción · Temuco</span>
+    <span>Objetivo: captación + WhatsApp</span>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">Punto de partida</p>
+  <h2>Dónde estás parado hoy</h2>
+  <p class="lede">Cuatro hechos que definen todo lo demás. Los tres primeros son límites de la plataforma, no errores tuyos.</p>
+
+  <div class="findings">
+    <div class="finding">
+      <span class="num">01</span>
+      <div>
+        <h4>“Keyget” no aparece en resultados de búsqueda</h4>
+        <p>Busqué la marca en varias combinaciones (Keyget inmobiliaria, Keyget propiedades, keyget.realestate) y no devuelve ni el Linktree ni un sitio propio ni fichas de directorios. Hoy te encuentra solo quien ya te conoce y escribe la URL. Eso es lo que hay que romper.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="num">02</span>
+      <div>
+        <h4>Linktree marca todos tus enlaces como <code>nofollow</code></h4>
+        <p>Cada botón sale envuelto en un redirect de tracking con <code>rel="nofollow"</code>: le dice explícitamente a Google que no traspase autoridad al destino. Da igual el plan que pagues. Tu Linktree nunca va a “empujar” a un sitio propio en el ranking.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="num">03</span>
+      <div>
+        <h4>La página se arma con JavaScript en el navegador</h4>
+        <p>Google indexa mal ese tipo de páginas. En la práctica un perfil de Linktree rankea para el nombre exacto de la marca y poco más — y el dominio que acumula autoridad es <code>linktr.ee</code>, no Keyget.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="num">04</span>
+      <div>
+        <h4>Tu nicho fuerte casi no tiene competencia en buscadores</h4>
+        <p>Pertenencias mineras y terrenos para PMGD son búsquedas de alto valor y baja oferta: los pocos que compiten son sitios chicos y específicos. Un dominio propio con esas páginas puede rankear en meses. Es la oportunidad más grande que tienes, y es la que Linktree no puede capturar por ti.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>La lectura correcta:</strong> dentro de Linktree se optimiza <strong>conversión y marca</strong> — que quien llega entienda en 3 segundos qué haces y escriba por WhatsApp. El <strong>posicionamiento real</strong> se juega afuera: dominio propio, Google Business Profile y portales.</p>
+    <p>Este documento trae las dos cosas: primero lo que reemplazas hoy en 30 minutos, después lo que construyes en 90 días.</p>
+  </div>
+
+  <p class="alt"><em class="tag">Nota:</em> el proxy de red de esta sesión bloquea <code>linktr.ee</code>, así que no pude leer tu perfil actual. Los textos de abajo están escritos desde cero con los datos que me diste; si tu bio o tus botones ya dicen algo que quieras conservar, mándamelo y lo integro.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Las palancas reales</p>
+  <h2>Los cinco campos de Linktree que sí leen los buscadores</h2>
+  <p>Todo lo demás (colores, fondos, animaciones, thumbnails) no afecta el posicionamiento — solo la conversión. Estos cinco sí:</p>
+
+  <div class="rows">
+    <div class="row">
+      <span class="num">A</span>
+      <div class="label">Nombre de perfil</div>
+      <p class="why">Es lo que Linktree mete en la etiqueta <code>&lt;title&gt;</code> de la página, el texto azul del resultado de Google y lo que se ve al compartir el link. La palanca número uno, y gratis.</p>
+      <p class="dest">Admin → Appearance → Profile title</p>
+    </div>
+    <div class="row">
+      <span class="num">B</span>
+      <div class="label">Bio</div>
+      <p class="why">Se usa como descripción por defecto y es lo primero que lee un humano. Tiene que decir qué vendes y dónde, no un eslogan.</p>
+      <p class="dest">Admin → Appearance → Bio</p>
+    </div>
+    <div class="row">
+      <span class="num">C</span>
+      <div class="label">Meta title y meta description personalizados</div>
+      <p class="why">Reemplazan el título y la descripción por defecto. Es la única función SEO propiamente tal de Linktree y está reservada a los planes Pro/Premium. Si vas a pagar un plan, es por esto.</p>
+      <p class="dest">Admin → Settings → SEO</p>
+    </div>
+    <div class="row">
+      <span class="num">D</span>
+      <div class="label">Texto de cada botón</div>
+      <p class="why">Es texto real en la página y es lo que la persona escanea. Un botón que dice “Propiedades” no vale nada; uno que dice “Departamentos en venta en Iquique y Santiago” vale por keyword y por claridad.</p>
+      <p class="dest">Admin → Links → título de cada link</p>
+    </div>
+    <div class="row">
+      <span class="num">E</span>
+      <div class="label">Handle, foto e íconos sociales</div>
+      <p class="why"><code>Keyget.realestate</code> está bien: contiene la marca y el rubro. <strong>No lo cambies</strong> si ya está en tus bios de Instagram, tarjetas o firmas — perderías todo el tráfico que ya apunta ahí. Los íconos sociales del header son enlaces indexables hacia tus perfiles: úsalos todos.</p>
+      <p class="dest">Admin → Settings → Linktree URL · Appearance → Social icons</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Copiar y pegar</p>
+  <h2>Los textos nuevos</h2>
+  <p class="lede">Reemplazo directo, campo por campo. Los contadores muestran los caracteres reales: Google corta el título alrededor de los 60 y la descripción alrededor de los 155.</p>
+
+  <h3>Nombre de perfil</h3>
+  <div class="paste">
+    <div class="paste-head"><b>Appearance → Profile title</b><button class="btn-copy" type="button">Copiar</button><span class="counter">48 caracteres</span></div>
+    <pre>Keyget | Propiedades, Minería y Terrenos Solares</pre>
+    <p class="note">Nombre + las tres verticales que te diferencian. Quien busca “Keyget” te reconoce, y quien llega desde un anuncio entiende el negocio completo sin bajar.</p>
+  </div>
+  <p class="alt"><em class="tag">Alternativas:</em> <code>Keyget | Corretaje de Propiedades y Activos Mineros</code> (51) si quieres tono más B2B · <code>Keyget Propiedades · Chile</code> (26) si prefieres foco residencial puro.</p>
+
+  <h3>Bio</h3>
+  <div class="paste">
+    <div class="paste-head"><b>Appearance → Bio</b><button class="btn-copy" type="button">Copiar</button><span class="counter">106 caracteres</span></div>
+    <pre>Corretaje en Iquique, Santiago, Concepción y Temuco. Propiedades, pertenencias mineras y terrenos solares.</pre>
+    <p class="note">Ciudades primero: es lo que la gente escribe cuando busca corredor. Si el campo te la corta, usa la versión de 60: <code>Propiedades, pertenencias mineras y terrenos solares · Chile</code></p>
+  </div>
+
+  <h3>Meta title <em class="tag">(plan Pro)</em></h3>
+  <div class="paste">
+    <div class="paste-head"><b>Settings → SEO → Meta title</b><button class="btn-copy" type="button">Copiar</button><span class="counter">57 caracteres</span></div>
+    <pre>Keyget | Propiedades, Minería y Terrenos Solares en Chile</pre>
+  </div>
+
+  <h3>Meta description <em class="tag">(plan Pro)</em></h3>
+  <div class="paste">
+    <div class="paste-head"><b>Settings → SEO → Meta description</b><button class="btn-copy" type="button">Copiar</button><span class="counter">150 caracteres</span></div>
+    <pre>Venta y arriendo de propiedades en Iquique, Santiago, Concepción y Temuco. Pertenencias mineras de oro, cobre y litio y terrenos para parques solares.</pre>
+    <p class="note">Variante con llamado a la acción (151): <code>Corredores en Iquique, Santiago, Concepción y Temuco: propiedades, pertenencias mineras y terrenos para parques fotovoltaicos. Escríbenos por WhatsApp.</code></p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Arquitectura</p>
+  <h2>Los botones, en este orden</h2>
+  <p class="lede">El orden no es estético: arriba va lo que más plata deja. Pediste priorizar captación y WhatsApp, así que los tres primeros botones son eso. Cada etiqueta lleva la palabra clave adentro — sirve para el buscador y para el ojo.</p>
+
+  <div class="rows">
+    <div class="row">
+      <span class="num">01</span>
+      <div class="label">💬 Hablar ahora por WhatsApp — respuesta en el día<span class="chip c-capta">Contacto</span></div>
+      <p class="why">Botón fijado arriba (usa la función “destacar/animar” de Linktree solo en este). Es tu conversión principal.</p>
+      <p class="dest">https://wa.me/569XXXXXXXX?text=Hola%20Keyget%2C%20vengo%20desde%20el%20link%20de%20su%20perfil</p>
+    </div>
+    <div class="row">
+      <span class="num">02</span>
+      <div class="label">🏷️ Vendo o arriendo mi propiedad — tasación gratis<span class="chip c-capta">Captación</span></div>
+      <p class="why">El lead más valioso del rubro es el propietario, no el comprador. “Tasación gratis” es la oferta que mejor convierte en corretaje y además es una búsqueda con volumen real.</p>
+      <p class="dest">WhatsApp con texto propio → …?text=Hola%2C%20quiero%20tasar%20mi%20propiedad%20en%20[ciudad]</p>
+    </div>
+    <div class="row">
+      <span class="num">03</span>
+      <div class="label">⛏️ Vendo mi pertenencia minera — evaluación y corretaje<span class="chip c-mina">Minería</span></div>
+      <p class="why">Captación del lado que casi nadie atiende: el dueño de una concesión que no sabe cómo venderla. Ticket alto, competencia mínima.</p>
+      <p class="dest">WhatsApp o formulario dedicado</p>
+    </div>
+    <div class="row">
+      <span class="num">04</span>
+      <div class="label">🏠 Propiedades en venta — Iquique, Santiago, Concepción y Temuco<span class="chip c-resi">Residencial</span></div>
+      <p class="why">Las cuatro ciudades escritas completas. Es el botón que carga tus keywords locales.</p>
+      <p class="dest">Tu catálogo, ficha de Portal Inmobiliario o carpeta de Drive</p>
+    </div>
+    <div class="row">
+      <span class="num">05</span>
+      <div class="label">🔑 Casas y departamentos en arriendo<span class="chip c-resi">Residencial</span></div>
+      <p class="why">Separado de la venta: son dos intenciones de búsqueda distintas y mezclarlas pierde a las dos.</p>
+      <p class="dest">Catálogo de arriendos</p>
+    </div>
+    <div class="row">
+      <span class="num">06</span>
+      <div class="label">⚒️ Pertenencias mineras en venta — oro, cobre, plata y litio<span class="chip c-mina">Minería</span></div>
+      <p class="why">Los cuatro minerales nombrados. Alguien que busca “concesión minera de cobre en venta” usa exactamente esas palabras.</p>
+      <p class="dest">Listado de propiedades mineras / PDF de portafolio</p>
+    </div>
+    <div class="row">
+      <span class="num">07</span>
+      <div class="label">☀️ Terrenos para parques fotovoltaicos (PMGD) — venta y arriendo<span class="chip c-solar">Energía</span></div>
+      <p class="why">Incluye la sigla PMGD: es el término que usan los desarrolladores cuando buscan terreno, y filtra al curioso.</p>
+      <p class="dest">Listado de terrenos con superficie, comuna y distancia a subestación</p>
+    </div>
+    <div class="row">
+      <span class="num">08</span>
+      <div class="label">🌾 ¿Tienes un terreno? Arriéndalo para energía solar<span class="chip c-solar">Energía</span></div>
+      <p class="why">El otro lado del mismo negocio: captación de terrenos. Menciona en el destino los criterios (20+ ha, a menos de 5 km de una subestación, suelo clase IV o inferior) para que te lleguen filtrados.</p>
+      <p class="dest">WhatsApp o formulario de captación de terrenos</p>
+    </div>
+    <div class="row">
+      <span class="num">09</span>
+      <div class="label">🏢 Servicios inmobiliarios para empresas — gestión y asesoría<span class="chip c-corp">B2B</span></div>
+      <p class="why">Tu línea corporativa. Detalla en el destino: búsqueda de sitios, arriendo de oficinas y bodegas, regularizaciones, estudio de títulos, administración de carteras.</p>
+      <p class="dest">Página o PDF de servicios corporativos</p>
+    </div>
+    <div class="row">
+      <span class="num">10</span>
+      <div class="label">📍 Dónde operamos: Iquique · Santiago · Concepción · Temuco</div>
+      <p class="why">Repite las cuatro ciudades y da señal de negocio real con presencia física. Apúntalo a tu ficha de Google Maps.</p>
+      <p class="dest">Enlace a tu Perfil de Empresa en Google</p>
+    </div>
+    <div class="row">
+      <span class="num">11</span>
+      <div class="label">⭐ Opiniones de nuestros clientes</div>
+      <p class="why">Prueba social, y de paso empuja reseñas a Google — que sí influyen en el mapa local.</p>
+      <p class="dest">Enlace corto de reseñas de tu ficha de Google</p>
+    </div>
+    <div class="row">
+      <span class="num">12</span>
+      <div class="label">🌐 Sitio web Keyget</div>
+      <p class="why">Va abajo por ahora. Sube al puesto 2 el día que exista el sitio propio de la sección siguiente.</p>
+      <p class="dest">keyget.cl (por construir)</p>
+    </div>
+  </div>
+
+  <p class="alt"><em class="tag">Además:</em> Instagram, Facebook, LinkedIn, YouTube y correo van como <strong>íconos sociales del header</strong>, no como botones — ocupan una fila en vez de cinco y dejan el espacio de arriba para lo que convierte.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Mecánica</p>
+  <h2>WhatsApp con mensaje precargado y medición</h2>
+  <p>Si todos los botones llevan al mismo WhatsApp, no vas a saber nunca qué línea de negocio tira. Solución: un texto precargado distinto por botón. El mensaje llega escrito y la persona solo aprieta enviar — sube la tasa de respuesta y te dice de dónde vino.</p>
+
+  <div class="paste">
+    <div class="paste-head"><b>Plantilla — reemplaza 569XXXXXXXX por tu número</b><button class="btn-copy" type="button">Copiar</button></div>
+<pre>https://wa.me/569XXXXXXXX?text=Hola%20Keyget%2C%20quiero%20tasar%20mi%20propiedad
+https://wa.me/569XXXXXXXX?text=Hola%20Keyget%2C%20quiero%20vender%20mi%20pertenencia%20minera
+https://wa.me/569XXXXXXXX?text=Hola%20Keyget%2C%20tengo%20un%20terreno%20para%20proyecto%20solar
+https://wa.me/569XXXXXXXX?text=Hola%20Keyget%2C%20busco%20propiedad%20en%20venta%20en%20</pre>
+    <p class="note">El número va sin “+” y sin espacios (56 + 9 + los ocho dígitos). Los espacios se escriben <code>%20</code> y las comas <code>%2C</code>.</p>
+  </div>
+
+  <p>Para los botones que van a un sitio o portal, agrégales UTMs y vas a ver el tráfico separado en Google Analytics:</p>
+  <div class="paste">
+    <div class="paste-head"><b>Sufijo UTM por botón</b><button class="btn-copy" type="button">Copiar</button></div>
+<pre>?utm_source=linktree&utm_medium=bio&utm_campaign=keyget&utm_content=propiedades-venta</pre>
+    <p class="note">Cambia solo <code>utm_content</code> por botón: <code>tasacion</code>, <code>mineria-venta</code>, <code>terrenos-pmgd</code>, <code>arriendos</code>, <code>empresas</code>.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">Vocabulario</p>
+  <h2>Las palabras que la gente escribe</h2>
+  <p class="lede">Estas son las consultas por las que quieres aparecer. Úsalas literales en los botones, en la ficha de Google, en los títulos de tus publicaciones y —cuando exista— en las páginas del sitio propio. Una página por fila, no todas mezcladas.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Línea</th><th>Consulta real</th><th>Dónde usarla</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip c-resi">Residencial</span></td><td class="kw">corredor de propiedades Iquique</td><td>Nombre de la ficha de Google + botón 04</td></tr>
+      <tr><td><span class="chip c-resi">Residencial</span></td><td class="kw">departamentos en venta Iquique</td><td>Página de catálogo, publicaciones en portales</td></tr>
+      <tr><td><span class="chip c-resi">Residencial</span></td><td class="kw">casas en arriendo Temuco</td><td>Botón 05 + ficha local de Temuco</td></tr>
+      <tr><td><span class="chip c-resi">Residencial</span></td><td class="kw">tasación de propiedades gratis</td><td>Botón 02 — es tu imán de captación</td></tr>
+      <tr><td><span class="chip c-mina">Minería</span></td><td class="kw">pertenencias mineras en venta Chile</td><td>Página propia dedicada, botón 06</td></tr>
+      <tr><td><span class="chip c-mina">Minería</span></td><td class="kw">concesión minera de cobre en venta</td><td>Página propia + portafolio PDF</td></tr>
+      <tr><td><span class="chip c-mina">Minería</span></td><td class="kw">venta de concesiones mineras de oro</td><td>Página propia, LinkedIn</td></tr>
+      <tr><td><span class="chip c-mina">Minería</span></td><td class="kw">cómo vender mi concesión minera</td><td>Artículo de blog → capta al propietario</td></tr>
+      <tr><td><span class="chip c-solar">Energía</span></td><td class="kw">terrenos para proyectos fotovoltaicos</td><td>Página propia, botón 07</td></tr>
+      <tr><td><span class="chip c-solar">Energía</span></td><td class="kw">arriendo de terreno para parque solar</td><td>Botón 08 + artículo de captación</td></tr>
+      <tr><td><span class="chip c-solar">Energía</span></td><td class="kw">terreno para PMGD cerca de subestación</td><td>Fichas de terreno con datos técnicos</td></tr>
+      <tr><td><span class="chip c-corp">B2B</span></td><td class="kw">arriendo de bodegas y oficinas Concepción</td><td>Página de servicios corporativos</td></tr>
+      <tr><td><span class="chip c-corp">B2B</span></td><td class="kw">gestión inmobiliaria para empresas</td><td>LinkedIn de empresa + botón 09</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="alt"><em class="tag">Regla de oro local:</em> una ciudad por página y por publicación. “Corredor de propiedades en Iquique, Santiago, Concepción y Temuco” en una sola página no rankea en ninguna de las cuatro; cuatro páginas, una por ciudad, rankean en cuatro.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Fuera de Linktree</p>
+  <h2>Lo que realmente te va a posicionar</h2>
+  <p class="lede">Ordenado por retorno sobre esfuerzo. Lo primero es gratis y es, de lejos, lo más rentable.</p>
+
+  <h3>1. Perfil de Empresa en Google — gratis, empieza hoy</h3>
+  <p>Para un corredor, esto vale más que cualquier otra cosa: es lo que aparece en el mapa cuando alguien busca “corredor de propiedades Iquique”. Crea una ficha por ciudad donde tengas dirección u oficina; donde no la tengas, configura Iquique como base y agrega las otras tres como <strong>área de servicio</strong>. Categoría principal “Agencia inmobiliaria”; secundarias “Corredor de propiedades” y “Agencia de bienes raíces”. Sube 15–20 fotos reales, pide reseñas a tus últimos clientes y publica novedades cada semana. Y usa siempre el mismo nombre, dirección y teléfono en todos lados — Google los cruza.</p>
+
+  <h3>2. Dominio propio — el activo que Linktree nunca va a ser</h3>
+  <p>Registra <code>keyget.cl</code> y levanta un sitio chico: portada, cuatro páginas de ciudad, una página por vertical (propiedades, arriendo, pertenencias mineras, terrenos solares, empresas) y contacto. No necesitas un desarrollo grande — con esa estructura y textos honestos ya compites, sobre todo en minería y fotovoltaico donde la competencia es escasa. Ese sitio sí acumula autoridad, sí lo indexa Google y sí se puede medir.</p>
+  <div class="callout">
+    <p>Si lo quieres, te armo ese sitio: la estructura de páginas, los textos con las keywords de la tabla anterior, y el sitio estático listo para publicar. Es el paso que convierte todo lo demás en tráfico.</p>
+  </div>
+
+  <h3>3. Portales, donde ya está la demanda</h3>
+  <p>Portal Inmobiliario, Yapo y TocToc para lo residencial; para minería y energía, LinkedIn (empresa + publicaciones tuyas), grupos y ferias del sector, y los directorios de proveedores mineros. Cada publicación bien titulada es un punto de entrada más — y varias de esas plataformas sí rankean en Google por ti.</p>
+
+  <h3>4. Contenido que responde la pregunta del dueño</h3>
+  <p>Cinco artículos o videos, uno por mes, resuelven la mitad del problema: <em>Cómo vender una pertenencia minera en Chile paso a paso</em> · <em>Cuánto se paga por arrendar un terreno para un parque solar</em> · <em>Qué necesita un terreno para calificar como PMGD</em> · <em>Qué documentos pide un comprador de concesión minera</em> · <em>Cuánto vale mi departamento en Iquique</em>. Esas son búsquedas reales de gente con una decisión pendiente, y casi nadie en Chile las está respondiendo bien.</p>
+
+  <h3>5. Consistencia de marca</h3>
+  <p>Mismo nombre (“Keyget”), mismo handle y misma descripción en Instagram, Facebook, LinkedIn, YouTube y la ficha de Google, todos enlazando al mismo destino. Es lo que hace que buscar “Keyget” deje de devolver nada.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Ejecución</p>
+  <h2>Qué hacer y cuándo</h2>
+
+  <h3>Hoy — 30 minutos</h3>
+  <ul class="check">
+    <li><b>Reemplazar nombre de perfil y bio</b> con los textos de arriba.</li>
+    <li><b>Reescribir los botones</b> en el orden 01–12, con las etiquetas completas.</li>
+    <li><b>Crear los enlaces de WhatsApp</b> con mensaje precargado distinto por botón.</li>
+    <li><b>Mover Instagram, Facebook y LinkedIn</b> a íconos sociales del header.</li>
+    <li><b>Cambiar la foto de perfil</b> al logo en cuadrado, legible a 40 px.</li>
+  </ul>
+
+  <h3>Esta semana</h3>
+  <ul class="check">
+    <li><b>Crear el Perfil de Empresa en Google</b> y pedir las primeras cinco reseñas.</li>
+    <li><b>Registrar keyget.cl</b> (y keyget.com si está libre).</li>
+    <li><b>Poner el enlace del Linktree</b> en la bio de todas tus redes y en tu firma de correo.</li>
+    <li><b>Activar el plan Pro</b> solo si vas a usar el meta title y la meta description personalizados.</li>
+  </ul>
+
+  <h3>Este mes</h3>
+  <ul class="check">
+    <li><b>Publicar el sitio propio</b> con las páginas por ciudad y por vertical.</li>
+    <li><b>Conectar Google Search Console</b> y pedir la indexación de cada página.</li>
+    <li><b>Subir el catálogo</b> a los portales, con títulos que usen las consultas de la tabla.</li>
+    <li><b>Escribir los dos primeros artículos</b> de minería y fotovoltaico — son los de menos competencia.</li>
+  </ul>
+
+  <h3>Cómo saber si funcionó</h3>
+  <p>A los 30 días: buscar “Keyget” en Google debería devolver tu ficha de empresa y tus redes. A los 60: la ficha aparece al buscar “corredor de propiedades Iquique”. A los 90, con sitio propio publicado: primeras visitas orgánicas por “pertenencias mineras en venta” y “terrenos para proyectos fotovoltaicos”. Los clics desde Linktree los ves en su propio panel de analítica, y los de cada botón, separados por el <code>utm_content</code>.</p>
+</section>
+
+<footer>
+  <p>Preparado para Keyget · agosto 2026. Los textos son de uso libre, listos para pegar. Si me pasas el contenido actual del perfil o el número de WhatsApp real, dejo los enlaces armados y ajusto lo que ya funcione.</p>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll(".btn-copy").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var block = btn.closest(".paste").querySelector("pre");
+    var text = block.textContent;
+    var done = function(){
+      var prev = btn.textContent;
+      btn.textContent = "Copiado";
+      setTimeout(function(){ btn.textContent = prev; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function(){ selectFallback(block); });
+    } else {
+      selectFallback(block);
+    }
+  });
+});
+function selectFallback(block){
+  var range = document.createRange();
+  range.selectNodeContents(block);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+</script>
